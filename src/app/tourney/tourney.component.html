@@ -1,0 +1,28 @@
+<glhf-header></glhf-header>
+<div class="body">
+	<h1>Current and Upcoming Tournaments</h1>
+	<ul>
+		<li *ngFor="let tourney of tourneys.results">
+			<div class="a1">
+				<img [src]="'/assets/logos/' + tourney.videogame.slug + '.png'"/>
+			</div>
+			<div class="a2">
+				<div [innerHtml]="tourney.serie.name + ' ' + tourney.name"></div>
+				<div [innerHtml]="tourney.league.name"></div>
+			</div>
+			<div class="a3">
+				<p>Participating Teams:</p>
+				<p *ngFor="let team of tourney.teams">
+					<img [src]="team.image_url"/> <span [innerHtml]="team.name"></span>
+				</p>
+			</div>
+		</li>
+	</ul>
+
+	<h1>Past Tournaments</h1>
+	<ul>
+		<li *ngFor="let tourney of pastTourneys.results">
+			{{ tourney.name }}
+		</li>
+	</ul>
+</div>

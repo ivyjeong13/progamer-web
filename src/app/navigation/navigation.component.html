@@ -1,0 +1,25 @@
+<ul class="outer-list">
+	<li (click)="showGames = !showGames" [ngClass]="{'show': showGames}"> 
+		<h3>Games</h3>
+		<ul class="inner-list" [ngClass]="{'show': showGames}">
+			<li *ngFor="let game of games" [routerLink]="['/game', game.slug]">
+				<span [innerHtml]="game.name"></span>
+			</li>
+		</ul>
+	</li>
+	<li [routerLink]="['/tournaments']" 
+		[ngClass]="{'selected': route && route.includes('/tournaments')}">
+		<h3>Tournaments</h3>
+	</li>
+	<li [routerLink]="['/matches']" 
+		[ngClass]="{'selected': route && route.includes('/matches')}">
+		<h3>Matches</h3>
+	</li>
+	<li [routerLink]="['/teams']" 
+		[ngClass]="{'selected': route && route.includes('/teams')}">
+		<h3>Teams</h3>
+	</li>
+	<li (click)="showFavorites()">
+		<h3>Favorites</h3>
+	</li>
+</ul>

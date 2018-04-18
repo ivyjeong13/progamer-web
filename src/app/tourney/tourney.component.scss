@@ -1,0 +1,50 @@
+.body{
+	width:100%;
+	background:#fff;
+	padding:0 10px 61px 10px;
+
+	h1{
+		font-family: "Crime Scene";
+		font-size:25px;
+	}
+
+	ul{
+		list-style:none;
+		padding:0;
+		width:100%;
+
+		li{
+			width:50%;
+			float:left;
+
+			.a1, .a2, .a3{
+				float:left;
+				width:100%;
+			}
+
+			.a1{
+				img{
+					width:35px;
+				}
+			}
+
+			.a2{
+				& > * {
+					width:33.333%;
+					float:left;
+				}
+			}
+
+			.a3{
+				p {
+					margin:0;
+					padding:0;
+
+					img{
+						width:35px;
+					}
+				}
+			}
+		}
+	}
+}

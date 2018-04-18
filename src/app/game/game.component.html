@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="image-container">
+		<img [src]="splashImage.original"/>
+		<div class="overhang">	
+			<div class="name" [innerHtml]="game.name"></div>
+		</div>
+	</div>
+
+	<div class="contents">
+		<h3 [innerHtml]="game.deck"></h3>
+		<h3>Developed By 
+			<span *ngFor="let dev of game.developers">{{ dev.name }}</span>
+		</h3>
+	</div>
+</div>

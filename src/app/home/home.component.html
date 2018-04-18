@@ -1,0 +1,71 @@
+<div class="container">
+	<div class="background"><img src="/assets/dota2_ti.jpg"/></div>
+	<div class="foreground">
+		<img src="/assets/dva_logo_2.png" 
+			(mouseover)="showDYK = true" 
+			(mouseout)="showDYK = false"
+		/>
+		<div class="foreground-text">
+			<h1>GLHF <span>Good Luck, Have Fun</span></h1>
+			<p>The website to keep <strong>you</strong> up-to-date on popular occurring and upcoming professional gaming leagues.</p>
+		</div>
+		<div class="foreground-list">
+			<div class="header"> 
+				<span>
+					Ongoing Matches <span>Today</span>
+				</span>
+			</div>
+			<ul class="list">
+				<li *ngFor="let match of matchesToday.matches">
+					<div>
+						<img [src]="'/assets/logos/' + match.videogame.slug + '.png'"/>
+						<span [innerHtml]="match.videogame.name"></span>
+					</div>
+					<div>
+						<span [innerHtml]="match.serie.name"></span>
+						<span [innerHtml]="match.tournament.name"></span>
+					</div>
+					<div>
+						<span [innerHtml]="match.name"></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="foreground-list">
+			<div class="header"> 
+				<span>
+					Ongoing Tourneys <span>This Week</span>
+				</span>
+			</div>
+			<ul class="list">
+				<li *ngFor="let tourney of weeklyTourneys.tournaments">
+					<div>
+						<img [src]="'/assets/logos/' + tourney.videogame.slug + '.png'"/>
+						<span [innerHtml]="tourney.videogame.name"></span>
+					</div>
+					<div>
+						<span [innerHtml]="tourney.serie.name"></span>
+						<span [innerHtml]="tourney.name"></span>
+					</div>
+					<div [innerHtml]="parseDates(tourney.begin_at, tourney.end_at)"></div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="note">
+			<p>
+				Powered By PandaScore API && GiantBomb API.
+			</p>
+			<p>
+				This is a website for fun, made for learning Angular 2.
+			</p>
+		</div>
+
+		<div class="didyouknow" [ngClass]="{'show': showDYK}">
+			<h3>Did you know...</h3>
+			<p>
+				The logo of choice for this website is the logo of <b>D.Va</b> a.k.a. <b>Hana Song</b> from the first-person MOBA shooter <b>Overwatch</b>. In the game, her character is a professional video gamer from South Korea. 
+			</p>
+		</div>
+	</div>
+</div>
